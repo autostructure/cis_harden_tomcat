@@ -30,7 +30,7 @@ define cis_harden_tomcat::harden_catalina_home(
 
   # 3.1 Set a nondeterministic Shutdown command value
   # 4.1 Restrict access to $CATALINA_HOME
-  unless defined(File['$catalina_home']) {
+  unless defined(File[$catalina_home]) {
     file { $catalina_home:
       ensure => directory,
       mode   => 'g-w,o-rwx',
