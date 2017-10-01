@@ -7,14 +7,14 @@ define cis_harden_tomcat::harden_application(
   String $group = 'tomcat',
 ) {
   # 4.2 Restrict access to $CATALINA_BASE
-  unless defined(File[$catalina_base]) {
-    file { $catalina_base:
-      ensure => directory,
-      mode   => 'g-w,o-rwx',
-      owner  => $owner,
-      group  => $group,
-    }
-  }
+  # unless defined(File[$catalina_base]) {
+  #   file { $catalina_base:
+  #     ensure => directory,
+  #     mode   => 'g-w,o-rwx',
+  #     owner  => $owner,
+  #     group  => $group,
+  #   }
+  # }
 
   # 7.2 Specify file handler in logging.properties files
   file_line { "${name}_logging_handler":
