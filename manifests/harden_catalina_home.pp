@@ -162,6 +162,13 @@ define cis_harden_tomcat::harden_catalina_home(
   }
 
   # 10.19 Setting Security Lifecycle Listener
+  file_line { "${catalina_home}-tomcat_umask":
+    ensure => present,
+    path   => "${catalina_home}/bin/catalina.sh",
+    line   => 'umask 0007',
+    after  => '#!/bin/sh',
+  }
+
   file_line { "${catalina_home}-SecurityListener_umask":
     ensure => present,
     path   => "${catalina_home}/bin/catalina.sh",
