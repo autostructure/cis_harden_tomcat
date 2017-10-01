@@ -1,6 +1,6 @@
 {
   "name": "autostructure-cis_harden_tomcat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "autostructure",
   "summary": "Hardens Tomcat installs to CIS standards.",
   "license": "Apache-2.0",
@@ -8,8 +8,14 @@
   "project_page": "https://github.com/autostructure/cis_harden_tomcat",
   "issues_url": "https://github.com/autostructure/cis_harden_tomcat/issues",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 < 5.0.0"},
-    {"name":"puppetlabs/tomcat","version_requirement":">= 1.0.0 < 3.0.0"}
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.6.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs/tomcat",
+      "version_requirement": ">= 1.0.0 < 3.0.0"
+    }
   ],
   "data_provider": null
 }
