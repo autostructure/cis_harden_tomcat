@@ -5,7 +5,46 @@ define cis_harden_tomcat::harden_catalina_home(
   String $group = 'tomcat',
   String $checked_os_users = 'root',
   String $minimum_umask = '0007',
+  Boolean $remove_extraneous_files_and_directories = false,
 ) {
+  # 1.1 Remove extraneous files and directories
+  if($remove_extraneous_files_and_directories) {
+    file { "${catalina_home}/webapps/js-examples":
+      ensure => absent,
+      force  => true,
+    }
+
+    file { "${catalina_home}/webapps/servlet-example":
+      ensure => absent,
+      force  => true,
+    }
+
+    file { "${catalina_home}/webapps/webdav":
+      ensure => absent,
+      force  => true,
+    }
+
+    file { "${catalina_home}/webapps/tomcat-docs":
+      ensure => absent,
+      force  => true,
+    }
+
+    file { "${catalina_home}/webapps/balancer":
+      ensure => absent,
+      force  => true,
+    }
+
+    file { "${catalina_home}/webapps/ROOT/admin":
+      ensure => absent,
+      force  => true,
+    }
+
+    file { "${catalina_home}/webapps/examples":
+      ensure => absent,
+      force  => true,
+    }
+  }
+
   # 2.5 Disable client facing Stack Traces
   augeas { 'Disable client facing Stack Traces':
     incl    => "${catalina_home}/conf/web.xml",
