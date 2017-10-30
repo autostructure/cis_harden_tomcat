@@ -3,7 +3,7 @@ define cis_harden_tomcat::harden_application(
   Stdlib::Absolutepath $catalina_home,
   Stdlib::Absolutepath $catalina_base,
   String $application,
-  String $owner = 'tomcat_admin',
+  String $owner = 'tomcat',
   String $group = 'tomcat',
 ) {
   # 4.2 Restrict access to $CATALINA_BASE

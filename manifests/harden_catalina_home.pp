@@ -1,7 +1,7 @@
 # Hardens a catalina home
 define cis_harden_tomcat::harden_catalina_home(
-  Stdlib::Absolutepath $catalina_home,
-  String $owner = 'tomcat_admin',
+  Stdlib::Absolutepath $catalina_home = $name,
+  String $owner = 'tomcat',
   String $group = 'tomcat',
   String $checked_os_users = 'root',
   String $minimum_umask = '0007',
