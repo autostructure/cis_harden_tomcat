@@ -7,6 +7,15 @@ define cis_harden_tomcat::harden_catalina_home(
   String $minimum_umask = '0007',
   Boolean $remove_extraneous_files_and_directories = false,
 ) {
+  unless defined(File["${catalina_home}/bin/setenv.sh"]) {
+    file { "${catalina_home}/bin/setenv.sh":
+      ensure => file,
+      owner  => $owner,
+      group  => $group,
+      mode   => '0755',
+    }
+  }
+
   # 1.1 Remove extraneous files and directories
   if($remove_extraneous_files_and_directories) {
     file { "${catalina_home}/webapps/js-examples":
