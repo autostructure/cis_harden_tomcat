@@ -1,6 +1,6 @@
 {
   "name": "autostructure-cis_harden_tomcat",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "autostructure",
   "summary": "Hardens Tomcat installs to CIS standards.",
   "license": "Apache-2.0",
