@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 group :test do
   gem 'coveralls'
   gem 'metadata-json-lint'
-  gem 'puppet', '~> 4.10.4' # , ENV['PUPPET_GEM_VERSION'] || '~> 4.8'
+  gem 'puppet', '~> 5.3.3' # , ENV['PUPPET_GEM_VERSION'] || '~> 4.8'
   gem 'puppetlabs_spec_helper'
   gem 'rake'
   gem 'rest-client'
@@ -16,7 +16,7 @@ group :test do
   gem 'simplecov'
   gem 'simplecov-console'
 
-  gem 'puppet-blacksmith', '~> 3.3.1'
+  gem 'puppet-blacksmith', '~> 4.0.1'
 
   gem 'puppet-lint-absolute_classname-check'
   gem 'puppet-lint-classes_and_types_beginning_with_digits-check'
