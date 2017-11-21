@@ -223,10 +223,9 @@ define cis_harden_tomcat::harden_catalina_home(
   }
 
   file_line { "${catalina_home}-SecurityListener_umask_remove":
-    ensure            => absent,
-    path              => "${catalina_home}/bin/catalina.sh",
-    match             => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
-    match_for_absence => true,
+    ensure => absent,
+    path   => "${catalina_home}/bin/catalina.sh",
+    line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
   }
 
   ::tomcat::config::server::listener {"${catalina_home}-org.apache.catalina.security.SecurityListener":
