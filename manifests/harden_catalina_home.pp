@@ -198,7 +198,7 @@ define cis_harden_tomcat::harden_catalina_home(
   file_line { "${catalina_home}-strict_servlet_compliance":
     ensure => present,
     path   => "${catalina_home}/bin/setenv.sh",
-    line   => "JAVA_OPTS=\"\$JAVA_OPTS ${strict_servlet_compliance} ${recycle_facades}\"",
+    line   => "export JAVA_OPTS=\"\$JAVA_OPTS ${strict_servlet_compliance} ${recycle_facades}\"",
   }
 
   # 10.18 Enable memory leak listener
@@ -219,7 +219,7 @@ define cis_harden_tomcat::harden_catalina_home(
   file_line { "${catalina_home}-SecurityListener_umask":
     ensure => present,
     path   => "${catalina_home}/bin/setenv.sh",
-    line   => 'JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
+    line   => 'export JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.security.SecurityListener.UMASK=`umask`"',
   }
 
   file_line { "${catalina_home}-SecurityListener_umask_remove":
